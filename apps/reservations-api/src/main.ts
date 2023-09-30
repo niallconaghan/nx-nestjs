@@ -7,6 +7,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app/app.module';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
@@ -17,8 +18,10 @@ async function bootstrap() {
 
     const globalPrefix = 'api';
     app.setGlobalPrefix(globalPrefix);
-    const port = process.env.PORT || 3000;
-    await app.listen(port);
+
+    const configService = app.get(ConfigService);
+
+    await app.listen(configService.get('PORT'));
 }
 
 bootstrap();
