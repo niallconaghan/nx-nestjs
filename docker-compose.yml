@@ -1,0 +1,11 @@
+services:
+    reservations:
+        build:
+            context: .
+            dockerfile: ./apps/reservations-api/Dockerfile
+            target: development
+        command: npx nx run reservations-api:serve
+        ports:
+            - '3000:3000'
+        # volumes:
+        #     - .:/usr/src/app
