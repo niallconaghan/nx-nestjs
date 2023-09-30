@@ -1,7 +1,7 @@
 {
-    "name": "reservations-api",
+    "name": "authentication-api",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "apps/reservations-api/src",
+    "sourceRoot": "apps/authentication-api/src",
     "projectType": "application",
     "targets": {
         "build": {
@@ -13,14 +13,14 @@
             "options": {
                 "target": "node",
                 "compiler": "tsc",
-                "outputPath": "dist/apps/reservations-api",
-                "main": "apps/reservations-api/src/main.ts",
-                "tsConfig": "apps/reservations-api/tsconfig.app.json",
+                "outputPath": "dist/apps/authentication-api",
+                "main": "apps/authentication-api/src/main.ts",
+                "tsConfig": "apps/authentication-api/tsconfig.app.json",
                 "assets": [
-                    "apps/reservations-api/src/assets"
+                    "apps/authentication-api/src/assets"
                 ],
                 "isolatedConfig": true,
-                "webpackConfig": "apps/reservations-api/webpack.config.js"
+                "webpackConfig": "apps/authentication-api/webpack.config.js"
             },
             "configurations": {
                 "development": {},
@@ -31,14 +31,14 @@
             "executor": "@nx/js:node",
             "defaultConfiguration": "development",
             "options": {
-                "buildTarget": "reservations-api:build"
+                "buildTarget": "authentication-api:build"
             },
             "configurations": {
                 "development": {
-                    "buildTarget": "reservations-api:build:development"
+                    "buildTarget": "authentication-api:build:development"
                 },
                 "production": {
-                    "buildTarget": "reservations-api:build:production"
+                    "buildTarget": "authentication-api:build:production"
                 }
             }
         },
@@ -49,7 +49,7 @@
             ],
             "options": {
                 "lintFilePatterns": [
-                    "apps/reservations-api/**/*.ts"
+                    "apps/authentication-api/**/*.ts"
                 ]
             }
         },
@@ -59,7 +59,7 @@
                 "{workspaceRoot}/coverage/{projectRoot}"
             ],
             "options": {
-                "jestConfig": "apps/reservations-api/jest.config.ts",
+                "jestConfig": "apps/authentication-api/jest.config.ts",
                 "passWithNoTests": true
             },
             "configurations": {

@@ -9,3 +9,16 @@ services:
             - '3000:3000'
         # volumes:
         #     - .:/usr/src/app
+
+    authentication:
+        build:
+            context: .
+            dockerfile: ./apps/authentication-api/Dockerfile
+            target: development
+        command: npx nx run authentication-api:serve
+        ports:
+            - '3001:3000'
+        # volumes:
+        #     - .:/usr/src/app
+    # mongo:
+    #     image: mongo
