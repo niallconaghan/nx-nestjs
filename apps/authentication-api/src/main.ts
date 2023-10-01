@@ -11,6 +11,8 @@ import { ConfigService } from '@nestjs/config';
 import cookieParser from 'cookie-parser';
 
 async function bootstrap() {
+    console.log('Test auth api');
+
     const app = await NestFactory.create(AppModule);
 
     app.use(cookieParser());

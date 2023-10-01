@@ -9,8 +9,9 @@ services:
             - ./apps/reservations-api/.env
         ports:
             - '3000:3000'
-        # volumes:
-        #     - .:/usr/src/app
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
 
     authentication:
         build:
@@ -22,7 +23,8 @@ services:
             - ./apps/authentication-api/.env
         ports:
             - '3001:3001'
-        # volumes:
-        #     - .:/usr/src/app
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
     # mongo:
     #     image: mongo

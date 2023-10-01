@@ -10,6 +10,8 @@ import { AppModule } from './app/app.module';
 import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
+    console.log('reservations-api');
+
     const app = await NestFactory.create(AppModule);
 
     app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
