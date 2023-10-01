@@ -1,13 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { AbstractDocument } from '@nx-nestjs/common';
+import { AbstractDocument } from '../database/abstract.schema';
 
 @Schema({ versionKey: false })
 export class UserDocument extends AbstractDocument {
     @Prop()
-    email: string;
+    email?: string;
 
     @Prop()
-    password: string;
+    password?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(UserDocument);

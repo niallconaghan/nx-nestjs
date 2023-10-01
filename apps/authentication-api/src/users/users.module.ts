@@ -2,7 +2,10 @@ import { Module } from '@nestjs/common';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { DatabaseModule } from '@nx-nestjs/common';
-import { UserDocument, UserSchema } from './models/user.schema';
+import {
+    UserDocument,
+    UserSchema,
+} from '../../../../common/src/lib/models/user.schema';
 import { UsersRepository } from './users.repository';
 
 @Module({

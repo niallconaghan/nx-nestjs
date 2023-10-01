@@ -9,11 +9,19 @@ import { Logger } from 'nestjs-pino';
 import { AppModule } from './app/app.module';
 import { ConfigService } from '@nestjs/config';
 import cookieParser from 'cookie-parser';
+import { Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
-    console.log('Test auth api');
-
     const app = await NestFactory.create(AppModule);
+    const configService = app.get(ConfigService);
+
+    app.connectMicroservice({
+        transport: Transport.TCP,
+        options: {
+            host: '0.0.0.0',
+            port: configService.get('TCP_PORT'),
+        },
+    });
 
     app.use(cookieParser());
 
@@ -24,9 +32,9 @@ async function bootstrap() {
     const globalPrefix = 'api';
     app.setGlobalPrefix(globalPrefix);
 
-    const configService = app.get(ConfigService);
+    await app.startAllMicroservices();
 
-    await app.listen(configService.get('PORT'));
+    await app.listen(configService.get('HTTP_PORT'));
 }
 
 bootstrap();

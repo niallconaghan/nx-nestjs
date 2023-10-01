@@ -1,9 +1,12 @@
 import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { LocalAuthenticationGuard } from './guards/local-authentication.guard';
-import { CurrentUser } from './decorators/current-user.decorator';
-import { UserDocument } from '../users/models/user.schema';
+
 import { Response } from 'express';
+import { MessagePattern, Payload } from '@nestjs/microservices';
+import { JwtAuthenticationGuard } from './guards/jwt-authentication.guard';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { CurrentUser, UserDocument } from '@nx-nestjs/common';
 
 @Controller()
 export class AppController {
@@ -17,6 +20,13 @@ export class AppController {
     ) {
         await this.appService.login(currentUser, response);
         response.send(currentUser);
+    }
+
+    @UseGuards(JwtAuthenticationGuard)
+    @MessagePattern('authenticate')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async authenticate(@Payload() data: any) {
+        return data.user;
     }
 
     @Get()
