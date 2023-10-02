@@ -5,7 +5,7 @@ import { DatabaseModule } from '@nx-nestjs/common';
 import {
     UserDocument,
     UserSchema,
-} from '../../../../common/src/lib/models/user.schema';
+} from '../../../../../common/src/lib/models/user.schema';
 import { UsersRepository } from './users.repository';
 
 @Module({

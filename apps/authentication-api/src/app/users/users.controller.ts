@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 
-import { JwtAuthenticationGuard } from '../app/guards/jwt-authentication.guard';
+import { JwtAuthenticationGuard } from '../guards/jwt-authentication.guard';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { CurrentUser, UserDocument } from '@nx-nestjs/common';
 
