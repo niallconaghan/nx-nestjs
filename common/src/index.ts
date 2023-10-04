@@ -14,3 +14,6 @@ export * from './lib/decorators/current-user.decorator';
 export * from './lib/dto/user.dto';
 
 export * from './lib/models/user.schema';
+
+export * from './lib/dto/create-charge.dto';
+export * from './lib/dto/card.dto';

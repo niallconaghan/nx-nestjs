@@ -32,7 +32,12 @@
         "pino-pretty": "^10.2.0",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^7.8.0",
-        "tslib": "^2.3.0"
+        "stripe": "^13.8.0",
+        "tslib": "^2.3.0",
+        "@nx/nx-linux-arm64-musl": "16.5.1"
+    },
+    "optionalDependencies": {
+        "@nx/nx-linux-arm64-musl": "16.5.1"
     },
     "devDependencies": {
         "@nestjs/schematics": "^10.0.1",

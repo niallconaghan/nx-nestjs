@@ -26,5 +26,19 @@ services:
         volumes:
             - .:/usr/src/app
             - /usr/src/app/node_modules
+
+    payments:
+        build:
+            context: .
+            dockerfile: ./apps/payments-api/Dockerfile
+            target: development
+        command: npx nx run payments-api:serve
+        env_file:
+            - ./apps/payments-api/.env
+        ports:
+            - '3003:3003'
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
     # mongo:
     #     image: mongo
